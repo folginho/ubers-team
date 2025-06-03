@@ -9,19 +9,37 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    position: relative;
+    overflow: hidden;
 }
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/Ubers Banner.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.3); /* Removed blur, kept darkness */
+    z-index: -1;
+}
+
 .convite {
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.9); /* Increased opacity for better contrast */
     /* Borda com gradiente */
-    border: 2px solid;
-    border-image: linear-gradient(90deg, #2a0066 50%, #660404 50%) 1;
+    border: 2px solid #4205a5;
     border-radius: 16px;
     padding: 32px 24px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     text-align: center;
     max-width: 450px;
     transition: transform 0.3s, box-shadow 0.3s;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none; /* Removed blur from card */
+    margin: 20px;
+    z-index: 1;
 }
 .convite:hover {
     transform: translateY(-5px);
@@ -41,7 +59,11 @@ body {
     left: 0;
     width: 100%;
     height: 50%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background: linear-gradient(to top, 
+        rgba(0,0,0,0.95) 0%,
+        rgba(0,0,0,0.7) 50%,
+        transparent 100%
+    ); /* Enhanced gradient for better visibility */
 }
 .banner-img {
     width: 100%;
@@ -64,7 +86,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg, #2a0066, #660404);
+    background: linear-gradient(45deg, #4205a5, #b90404);
     opacity: 0.5;
     transition: opacity 0.3s ease;
 }
@@ -92,7 +114,7 @@ body {
     margin-bottom: 12px;
     text-transform: uppercase;
     /* Mudando cor do título para dourado */
-    background: linear-gradient(90deg, #2a0066 50%, #660404 50%);
+    background: linear-gradient(45deg, #4205a5, #b90404);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: none;
@@ -118,7 +140,7 @@ body {
     margin-top: 18px;
     padding: 10px 28px;
     /* background: #00c3ff; */
-    background: linear-gradient(90deg, #2a0066 50%, #660404 50%);
+    background: #4205a5;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -130,7 +152,7 @@ body {
 }
 .botao:hover {
     /* background: #005f7f; */
-    background: linear-gradient(90deg, #660404 50%, #2a0066 50%);
+    background: #b90404;
     transform: translateY(-2px);
 }
 .detalhes {
@@ -159,7 +181,7 @@ body {
 .subtitulo {
     font-size: 1.5rem;
     /* Mudando cor do subtítulo */
-    background: linear-gradient(90deg, #660404 50%, #2a0066 50%);
+    background: linear-gradient(45deg, #b90404, #4205a5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: none;
@@ -172,7 +194,7 @@ body {
     font-size: 1.1rem;
     line-height: 1.8;
     padding: 15px;
-    border-left: 3px solid;
+    border-left: 3px solid #4205a5;
     border-image: linear-gradient(to bottom, #2a0066, #660404) 1;
     background: rgba(42, 0, 102, 0.1);
     margin: 25px 0;
@@ -180,7 +202,7 @@ body {
 }
 .botao-confirmar {
     /* Novo estilo para botão de confirmar */
-    background: linear-gradient(90deg, #2a0066 50%, #660404 50%);
+    background: #4205a5;
     color: #fff;
     padding: 15px 40px;
     font-size: 1.1rem;
@@ -191,7 +213,7 @@ body {
     transition: all 0.4s ease;
 }
 .botao-confirmar:hover {
-    background: linear-gradient(90deg, #660404 50%, #2a0066 50%);
+    background: #b90404;
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(102, 4, 4, 0.4);
 }
